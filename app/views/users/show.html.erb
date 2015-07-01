@@ -1,0 +1,59 @@
+<div class="main row single user-container">
+  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+  	<div class="flipper">
+  		<div class="front superheros2">
+        <div class="img-container">
+           <%= link_to image_tag(@superhero.image), superhero_path(@superhero) %>
+        </div>
+          <h3><%= @superhero.name %></h3>
+          <h3>Score: <%= @superhero.sentiment_score %></h3>
+        </div>
+
+      <div class="back">
+        <div class="description">
+          <h3><%= @superhero.name %></h3>
+          <p><%= @superhero.deck %></p>
+          <h3><%= link_to image_tag("tweet_button.png", :class => 'tweet_icon'), tweet_path, method: :post %></h3>
+          <h3>Tweet Your Superhero Match!</h3>
+        </div>
+      </div>
+  	</div>
+  </div>
+
+  <div class="super-comment">
+    <h3><%= truncate("Hey #{current_user.nickname}, Our spidey senses tell us that you are most like #{@superhero.name}!", length: 110) %> </h3>
+  </div>
+
+  <div class="super-tweet">
+    <h3> Your other closest super matches are </h3>
+    <% @closest_matches.each do |hero| %>
+      <div class="large-4 columns closest">
+        <div class="img-container4", id="close">
+          <%= link_to image_tag(hero.image), superhero_path(hero), class: "custom-thumbnail-class img=small" %>
+        </div>
+        <h3> <%= hero.name %> </h3>
+        <h3> Score: <%= hero.sentiment_score %> </h3>
+      </div>
+    <% end %>
+  </div>
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,200italic,600italic&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
+
+    <script src="http://phuonghuynh.github.io/js/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="http://phuonghuynh.github.io/js/bower_components/d3/d3.min.js"></script>
+    <script src="http://phuonghuynh.github.io/js/bower_components/d3-transform/src/d3-transform.js"></script>
+    <script src="http://phuonghuynh.github.io/js/bower_components/cafej/src/extarray.js"></script>
+    <script src="http://phuonghuynh.github.io/js/bower_components/cafej/src/misc.js"></script>
+    <script src="http://phuonghuynh.github.io/js/bower_components/cafej/src/micro-observer.js"></script>
+    <script src="http://phuonghuynh.github.io/js/bower_components/microplugin/src/microplugin.js"></script>
+    <script src="http://phuonghuynh.github.io/js/bower_components/bubble-chart/src/bubble-chart.js"></script>
+    <script src="http://phuonghuynh.github.io/js/bower_components/bubble-chart/src/plugins/central-click/central-click.js"></script>
+    <script src="http://phuonghuynh.github.io/js/bower_components/bubble-chart/src/plugins/lines/lines.js"></script>
+    <script src="index.js"></script>
+
+    <div class="row">
+    <div class="large-6 columns">
+      <div class="bubbleChart d3"></div>
+    </div>
+  </div>
+</div>

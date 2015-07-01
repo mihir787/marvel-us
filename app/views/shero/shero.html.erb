@@ -1,0 +1,17 @@
+<div class="row">
+  <button id="female">Sheros</button>
+  <button id="male">Heroes</button>
+  <button id="all">All</button>
+</div>
+
+<div class="row main superheros", id: "super-section">
+<div><%= will_paginate @females %></div>  
+  <% @females.each do |superhero| %>
+  <div class="large-4 columns superheros2 <%=superhero.gender%>">
+  <div class="img-container filtered-heroes">
+    <%= link_to image_tag(superhero.image), superhero_path(superhero) %>
+  </div>
+    <h3> <%= superhero.name %> </h3>
+  </div>
+  <% end %>
+</div>

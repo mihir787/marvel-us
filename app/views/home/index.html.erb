@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="large-12 columns hero">
+  <%= image_tag("heroimg.png") %>
+  </div>
+</div>
+
+<div class="row entry-message">
+  <div class="large-2 columns">
+    <%= link_to "click here", about_path, :class => 'click-me' %>
+  </div>
+  <div class="large-10 columns  entry-message-right">
+    <h1><%= link_to "Which Superhero are you?", about_path, class: "homelinks" %></a></h1>
+    <p><%= link_to "Use our superpowered Tweet Analyzer to find out!", about_path, class: "homelinks" %></p>
+  </div>
+</div>
+
+
+
+<div class="row main superheros center">
+<h1> The World is Filled with Superheroes.<br> which one are you?</h1>
+    <div class="sort-button cushion">     
+      <%= link_to 'SHEROES', superheroes_path({gender: "female"}) %> ~
+      <%= link_to 'HEROES', superheroes_path({gender: "male"})  %> ~
+      <%= link_to 'ALL', superheroes_path %>
+    </div>
+
+  <% @superheros.each do |superhero| %>
+  <div class="large-4 columns superheros2">
+  <div class="img-container">
+    <%= link_to image_tag(superhero.image), superhero_path(superhero) %>
+  </div>
+    <h3> <%= superhero.name %> </h3>
+  </div>
+  <% end %>
+</div>

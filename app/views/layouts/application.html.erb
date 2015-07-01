@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "MARVEL.US" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+  </head>
+
+  <body>
+
+    <div class="row main-nav">
+      <div class="large-3 columns">
+        <div class="logo"><%=link_to image_tag("logo.png"), root_path %></div>
+      </div>
+      <div class="large-9 columns">
+
+      <%= render 'layouts/navbar' %>
+
+      </div>
+    </div>
+
+    <%= yield %>
+
+    <footer class="row center">
+    <% if current_page?('/') %>
+      <p> Data Courtesy of: <%= link_to ' Comic Vine', 'http://www.comicvine.com' %> </p> 
+      <% end %>
+
+
+    </footer>
+
+  </body>
+</html>

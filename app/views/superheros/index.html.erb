@@ -1,0 +1,17 @@
+<div class="row main superheros">
+  <div class="cushion"><%= will_paginate @superheros %></div>  
+    <div class="sort-button">     
+      <%= link_to 'SHEROES', superheroes_path({gender: "female"}) %> ~
+      <%= link_to 'HEROES', superheroes_path({gender: "male"})  %> ~  
+      <%= link_to 'ALL', superheroes_path %>
+    </div>
+
+    <% @superheros.each do |superhero| %>
+      <div class="large-4 columns superheros2 <%=superhero.gender%>">
+      <div class="img-container filtered-heroes">
+        <%= link_to image_tag(superhero.image), superhero_path(superhero) %>
+      </div>
+      <h3> <%= superhero.name %> </h3>
+    </div>
+    <% end %>
+</div>

@@ -1,0 +1,15 @@
+<div class="row main superheros">
+  <div class="large-4 columns superheros2">
+  <%= image_tag(@superhero.image, class: "super-img") %>
+  </div>
+  <div class="large-8 columns">
+  <br/>
+    <h1> <%= @superhero.name %> </h1>
+    <p class="deck"> <%= @superhero.deck %> </p>
+    <h4 class="super-info"> <%= display_present_attribute("Real Name", @superhero.real_name) %></h4>
+    <h4 class="super-info"><%= display_present_attribute("Birthday", @superhero.birthday) %> </h4>
+    <h4 class="super-info"><%= display_present_attribute("Score", @superhero.sentiment_score.to_s) %> </h4>
+    <h4 class="super-info"><%= display_present_attribute("Publisher", @superhero.publisher) %></h4>
+    <h4 class="super-info"><%= display_present_attribute("Gender", @superhero.gender) %></h4><br>
+    <%= link_to "Back", :back %>
+  </div>
